@@ -1,0 +1,103 @@
+<div class="upload-page">
+
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Share your product here
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <form class="box" action="/upload/upload-file-form" enctype="multipart/form-data" method="post" id="theform">
+
+      <figure class="image is-128x128">
+          <img  id="product-img" src="http://placehold.it/180" alt="your image" />
+      </figure>
+
+    <div class="file has-name" id="file-chooser-widget">
+
+      <label class="file-label">
+        <input class="file-input" onchange="readUploadedImg(this);" id="theinputfield" type="file" name="thefile" accept="image/*">
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fa fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose a image…
+          </span>
+        </span>
+        <span class="file-name" id="fn">
+          ...
+        </span>
+      </label>
+    </div>
+
+    <div class="field has-addons has-addons-left">
+      <p class="control">
+        <span class="select">
+             <select>
+                <option>$</option>
+                <option>£</option>
+                <option>€</option>
+            </select>
+        </span>
+      </p>
+      <p class="control">
+        <input id="item-price" class="input" type="number" onkeypress="isNumberKey(event)" placeholder="Amount of money">
+      </p>
+    </div>
+
+    <div class="control">
+      <label class="label">Product name</label>
+      <input id="item-title" class="input" type="text" placeholder="Product name">
+    </div>
+
+    <div class="field">
+      <label class="label">Product description</label>
+      <div class="control">
+          <textarea id="product-description" class="textarea" placeholder="Describe your product..."></textarea>
+      </div>
+    </div>
+
+    <p class="field">
+      <a class="button is-primary is-outlined" id="post-shopping">
+        <span class="icon is-large">
+          <i class="fa fa-check"></i>
+        </span>
+        <span>Post</span>
+      </a>
+      <a class="button is-danger is-outlined" id="delete-posting">
+        <span>Delete</span>
+        <span class="icon is-small">
+          <i class="fa fa-times"></i>
+        </span>
+      </a>
+    </p>
+  </form>
+</div>
+
+<script>
+
+  function readUploadedImg(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#product-img').attr('src', e.target.result);
+        };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function isNumberKey(event){
+    var theEvent = event || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+</script>

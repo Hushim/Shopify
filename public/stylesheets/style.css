@@ -1,0 +1,64 @@
+
+.upload-page #file-chooser-widget {
+  margin-bottom: 10px;
+}
+
+.hero-container {
+  margin-left: 2%;
+}
+
+/* index */
+.h_image {
+  /* padding: 0 0 3% 0; */
+  /* height: 10%;
+  width: 15%; */
+}
+
+.card-content {
+  height: 250px;
+}
+
+.list-item-card {
+  padding-bottom: 10px;
+}
+
+.card-image{
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+
+#profile-pic {
+  padding-left: 5%;
+  padding-top: 3%;
+}
+
+#search-input {
+  position: absolute;
+}
+#search-btn {
+  position: absolute;
+  right: 0;
+  opacity: 10%;
+  opacity: 0;
+}
+
+.item-description{
+  padding-left: 10%;
+  height:50px;
+  word-wrap:break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.item-price {
+  padding-top: 1%;
+  padding-left: 30%;
+}
+
+.post-date {
+  padding-left: 30%;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+
+    <nav class="navbar is-light">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item title" href="/">Shopify</a>
+        </div>
+        <div class="navbar-end">
+          <a class="navbar-item " href="/">
+            <i class="fa fa-home fa-2x"></i>
+            Home
+          </a>
+          <a class="navbar-item " href="/createShopping">
+            <i class="fa fa-pencil-square fa-2x"></i>
+            Share my shopping
+          </a>
+          <a class="navbar-item " href="myCollection">
+            <i class="fa fa-file fa-2x"></i>
+            My collections
+          </a>
+          {{#if user}}
+            <span class="navbar-item">
+              <figure class="image is-16x16">
+                <img src="{{ user.picture }}" alt="Image">
+              </figure>
+              &nbsp;
+              {{ user.displayName }}
+            </span>
+            <a class="navbar-item" href="/logout">log out</a>
+          {{else}}
+            <a class="navbar-item" href="/login">log in</a>
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="content">
+        {{{body}}}
+      </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/javascripts/local.js"></script>
+    {{#each scripts}}
+      <script src="/javascripts/{{this}}"></script>
+    {{/each}}
+  </body>
+</html>
